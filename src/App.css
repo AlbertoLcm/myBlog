@@ -39,6 +39,11 @@
 .head__options__list a{
   color: var(--color-secondary-text);
   font-weight: 400;
+  transition: all 0.3s ease;
+}
+
+.head__options__list a:hover{
+  color: #1F5EEC;
 }
 
 .head__options__list .active{
@@ -46,6 +51,10 @@
   color: var(--color-white);
   border-radius: 2rem;
   background-color: #1F5EEC;
+}
+
+.head__options__list .active:hover{
+  color: #fff;
 }
 
 .separator {
@@ -254,4 +263,22 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
+}
+
+
+.pagination__Swiper {
+  width: 100%;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+  background: #ffffff77;
+  width: 0.7rem;
+  height: 0.7rem;
+}
+
+.swiper-pagination .swiper-pagination-bullet-active {
+  background: #ffffffc2;
 }
