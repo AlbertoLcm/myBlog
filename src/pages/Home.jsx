@@ -1,13 +1,14 @@
 import { Fragment, useEffect, useRef, useState } from "react";
+import { Route, Routes, useParams, useSearchParams } from "react-router-dom";
 import CircularProgress from "@mui/material/CircularProgress";
 import Pagination from "@mui/material/Pagination";
 import axios from "axios";
-import { Route, Routes, useParams, useSearchParams } from "react-router-dom";
-import { Navbar } from "../components/Navbar";
+import { Navbar } from "../components/ui/Navbar";
 import { Slidebar } from "../components/posts/Slidebar";
 import { Suscription } from "../components/Suscription";
 import { Post } from "../components/posts/Post";
 import "../App.css";
+import { TagPosts } from "../components/posts/TagPosts";
 
 const AllPosts = () => {
   const [loading, setLoading] = useState(true);
@@ -33,6 +34,8 @@ const AllPosts = () => {
 
   if (loading) return <CircularProgress color="secondary" />;
 
+  if (!response.data.length) return <h2>Parece que no hay articulos</h2>;
+  
   return (
     <Fragment>
       <Slidebar />
@@ -54,11 +57,6 @@ const AllPosts = () => {
       </div>
     </Fragment>
   );
-};
-
-const TagPosts = () => {
-  const { tag } = useParams();
-  return <h1>Tag {tag}</h1>;
 };
 
 function Home() {

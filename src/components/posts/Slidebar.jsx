@@ -22,6 +22,8 @@ export function Slidebar() {
 
   if (loading) return <CircularProgress color="secondary" />;
 
+  if (!featured.length) return <h2>Parece que no hay articulos destacados</h2>;
+
   return (
     <section className="featured">
       <Swiper
